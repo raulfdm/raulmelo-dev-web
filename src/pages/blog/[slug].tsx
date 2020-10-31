@@ -1,17 +1,19 @@
 import React from 'react';
 import { GetStaticPaths } from 'next';
 
-import { renderToString } from '@config/mdx';
+import { renderToString, hydrate } from '@config/mdx';
 import { Backend } from '@services/Backend';
 import { PostApi, PostsApi } from 'src/types/api/posts';
+import { BlogTheme } from '@components/Themes/BlogTheme';
 
 type BlogProps = {
   content: any;
 };
 
-const BlogPost: React.FC<BlogProps> = (props) => {
-  console.log(props);
-  return <div>post</div>;
+const BlogPost: React.FC<BlogProps> = ({ content }) => {
+  const parsedContent = hydrate(content);
+  console.log(parsedContent);
+  return <BlogTheme>{parsedContent}</BlogTheme>;
 };
 
 type Params = {
