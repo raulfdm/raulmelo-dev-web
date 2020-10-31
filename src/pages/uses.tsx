@@ -1,9 +1,10 @@
 import { hydrate, renderToString } from '@config/mdx';
-
 import { UsesPage } from '@screens/Uses/UsesPage';
 import { head } from '@utils/utilities';
 import { UsesApiData } from '@types-api';
-import { Backend } from 'src/services/Backend';
+import { Backend } from '@services/Backend';
+import { GetStaticProps } from 'next';
+
 type GetStaticPropsReturnType = {
   props: {
     usesMd: RenderToStringReturnType;
@@ -17,7 +18,7 @@ const Uses = (props: GetStaticPropsReturnType['props']) => {
   return <UsesPage>{content}</UsesPage>;
 };
 
-export const getStaticProps = async ({
+export const getStaticProps: GetStaticProps = async ({
   locale,
 }): Promise<GetStaticPropsReturnType> => {
   const usesMdx = (await Backend.fetch(
