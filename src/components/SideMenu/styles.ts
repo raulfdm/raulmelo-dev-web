@@ -42,7 +42,7 @@ export const StyledLink = styled.a<{ $isCurrentPage?: boolean }>`
     `}
 `;
 
-export const OpacityLayer = styled(motion.div)`
+export const Overlay = styled(motion.div)`
   position: absolute;
   opacity: 0;
   top: 0;
