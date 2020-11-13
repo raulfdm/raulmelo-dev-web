@@ -12,7 +12,7 @@ export const Nav = styled(motion.nav)<{ isCollapsed: boolean }>`
   background-color: ${({ theme }) => theme.color.background};
   padding: 8px 0;
   overflow-x: hidden;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   border: ${({ theme }) =>
@@ -50,5 +50,5 @@ export const OpacityLayer = styled(motion.div)`
   right: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1;
+  z-index: 2;
 `;
