@@ -93,21 +93,23 @@ export const SideMenu = () => {
           );
         })}
       </Nav>
-      <OpacityLayer
-        style={{
-          pointerEvents: isCollapsed ? 'none' : 'all',
-        }}
-        onClick={hide}
-        animate={animate}
-        variants={{
-          open: {
-            opacity: 1,
-          },
-          closed: {
-            opacity: 0,
-          },
-        }}
-      />
+      {!isCollapsed ? (
+        <OpacityLayer
+          style={{
+            pointerEvents: isCollapsed ? 'none' : 'all',
+          }}
+          onClick={hide}
+          animate={animate}
+          variants={{
+            open: {
+              opacity: 1,
+            },
+            closed: {
+              opacity: 0,
+            },
+          }}
+        />
+      ) : null}
     </>
   );
 };
