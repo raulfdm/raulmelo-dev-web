@@ -27,7 +27,6 @@ const pickPostData = R.pick([
 ]);
 
 const pickFeaturedImage = R.pick(['width', 'height', 'url']);
-
 const pickTag = R.pick(['slug', 'id', 'name']);
 
 export function sanitizePosts(posts: PostsApiData): SanitizedPost[] {
