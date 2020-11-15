@@ -9,7 +9,7 @@ import { blogGlobalStyles } from '@screens/Blog/styles/globals';
 import { GlobalStyles } from '@styles/index';
 import { MenuBar } from '@components/MenuBar';
 import { Container, Tag, Tags, LineDivider } from '@components/Ui';
-import { Divider } from '@components/MdxComponents/Divider';
+import { DotDivider } from '@components/MdxComponents/DotDivider';
 import { SeriesSection } from './components/SeriesSection';
 import { RelevantPostSerieData } from './utils/series';
 import { RelevantTranslationData } from './utils/translations';
@@ -36,7 +36,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
   const seriesWithDivider = series ? (
     <>
-      <Divider />
+      <DotDivider />
       {allSeries}
     </>
   ) : null;
