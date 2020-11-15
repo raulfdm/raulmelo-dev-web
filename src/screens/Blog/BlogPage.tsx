@@ -14,6 +14,9 @@ import { SeriesSection } from './components/SeriesSection';
 import { RelevantPostSerieData } from './utils/series';
 import { RelevantTranslationData } from './utils/translations';
 import { AvailableTranslations } from './components/AvailableTranslations';
+import { useRouter } from 'next/router';
+import { getPostUrl } from '@utils/url';
+import { useLocalization } from '@hooks/useLocalization';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -29,6 +32,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   translation,
 }) => {
   const { featured_image, post_tags } = post;
+  const { locale } = useLocalization();
 
   const allSeries = series ? (
     <SeriesSection series={series} currentPostId={post.id} />
@@ -68,10 +72,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         imageUrl={featured_image.url}
         title={post.title}
         description={post.description}
-        /* TODO: fix that 
-        It needs to be add the FULL url
-        */
-        url={`/blog/${post.slug}`}
+        url={getPostUrl(post.slug, locale)}
       >
         <link
           href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
