@@ -14,7 +14,6 @@ import { SeriesSection } from './components/SeriesSection';
 import { RelevantPostSerieData } from './utils/series';
 import { RelevantTranslationData } from './utils/translations';
 import { AvailableTranslations } from './components/AvailableTranslations';
-import { useRouter } from 'next/router';
 import { getPostUrl } from '@utils/url';
 import { useLocalization } from '@hooks/useLocalization';
 
