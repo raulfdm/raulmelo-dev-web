@@ -1,0 +1,8 @@
+.SocialLink:not(:last-child):after {
+  content: '·';
+  color: inherit;
+  position: absolute;
+  /* TODO: check if it's impossible use tailwind */
+  right: -12px;
+  top: 4px;
+}
