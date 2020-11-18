@@ -31,7 +31,7 @@ export const MenuBar: FC = () => {
           - positive => it means scrolling up => I want to show
          */
 
-        const shouldShow = yDifference > 0;
+        const shouldShow = yDifference >= 0;
         setShowMenu(shouldShow);
         /* I need to save nextPosition to the next comparison */
         previousPosition.set(nextYPosition);
