@@ -3,7 +3,6 @@ import isEmpty from 'ramda/src/isEmpty';
 import { FormattedMessage, defineMessages } from 'react-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { styled } from '@styles/styled';
 import { PostFilters } from '@screens/Home/types';
 import { SupportedLanguages } from '@types-app';
 import { useLocalization } from '@hooks/useLocalization';
@@ -18,29 +17,6 @@ type PostsProps = {
   hasMore: boolean;
   customTitle?: string;
 };
-
-const PostsTitle = styled.h2`
-  letter-spacing: -0.32px;
-  font-size: 2.1rem;
-  font-weight: 600;
-  font-family: ${({ theme }) => theme.font.contentSans};
-  padding-bottom: 1.2rem;
-`;
-
-const PostList = styled.ul`
-  list-style: none;
-`;
-
-const PostListItem = styled(motion.li)`
-  margin-bottom: 3rem;
-`;
-
-const NoPostsMessage = styled.p`
-  font-size: 1.6rem;
-  line-height: 24px;
-  font-weight: 400;
-  font-family: ${({ theme }) => theme.font.contentSans};
-`;
 
 const messages = defineMessages({
   pt: {
@@ -84,29 +60,30 @@ export const Posts: React.FC<PostsProps> = ({
 
   return (
     <>
-      <PostsTitle>
+      <h2 className="text-2xl mb-3 font-bold font-sans">
         {customTitle || <FormattedMessage id={filterLocale[filter]} />}
-      </PostsTitle>
+      </h2>
 
       {isEmpty(posts) ? (
-        <NoPostsMessage>
+        <p className="text-base font-sans">
           <FormattedMessage
             id="home.noPosts"
             values={{
               language: formatMessage(messages[locale as SupportedLanguages]),
             }}
           />
-        </NoPostsMessage>
+        </p>
       ) : (
         <InfiniteScroll
           threshold={500}
           onLoadMore={loadMore}
           hasMore={hasMore}
-          Component={PostList}
+          Component={motion.ul}
         >
           <AnimatePresence initial={false}>
             {posts.map((post) => (
-              <PostListItem
+              <motion.li
+                className="mb-7"
                 key={post.id}
                 variants={itemsAnimationVariants}
                 initial="hidden"
@@ -120,7 +97,7 @@ export const Posts: React.FC<PostsProps> = ({
                 }}
               >
                 <PostCard post={post} key={post.id} />
-              </PostListItem>
+              </motion.li>
             ))}
           </AnimatePresence>
         </InfiniteScroll>
