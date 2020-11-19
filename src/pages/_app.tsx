@@ -6,6 +6,7 @@ import { AppContextProvider } from '@contexts/app';
 import '@styles/css/reset.css';
 import '@styles/css/fonts.css';
 import '@styles/css/nextjs.css';
+import 'tailwindcss/tailwind.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
