@@ -15,8 +15,8 @@ export const customGlobals = css`
     font-size: 16px;
   }
 
-  body,
-  body.light {
+  html,
+  html.light {
     --background: ${themeBackgroundColor.light};
     --font: rgb(0, 0, 0, 0.84);
     --font-medium: rgba(0, 0, 0, 0.76);
@@ -29,7 +29,7 @@ export const customGlobals = css`
     --infoBox: #fbf9e0;
   }
 
-  body.dark {
+  html.dark {
     --background: ${themeBackgroundColor.dark};
     --font: rgba(255, 255, 255, 1);
     --font-medium: rgba(255, 255, 255, 0.7);
