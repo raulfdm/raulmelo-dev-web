@@ -5,16 +5,8 @@ import Image from 'next/image';
 
 import { Tag, Tags } from '@components/Ui';
 import { isNotNilNorEmpty } from '@utils/utilities';
-import {
-  Body,
-  DateAndTime,
-  ImageContainer,
-  Subtitle,
-  Title,
-  PostCardWrapper,
-} from './styled';
-import { PostApiData } from 'src/types/api/posts';
 import { getPostUrl } from '@utils/url';
+import { PostApiData } from 'src/types/api/posts';
 
 type PostCardProps = {
   post: PostApiData;
@@ -49,24 +41,24 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
   ) : null;
 
   return (
-    <PostCardWrapper>
+    <article className="mb-10">
       {featured_image && (
-        <ImageContainer>
-          <Image src={featured_image.url} layout="fill" />
-        </ImageContainer>
+        <div className="relative h-64 sm:h-64 md:h-80 rounded-sm shadow-sm">
+          <Image
+            className="object-cover rounded-sm"
+            src={featured_image.url}
+            layout="fill"
+          />
+        </div>
       )}
-      <Body>
-        <Title>
-          <Link
-            href={getPostUrl(slug)}
-            data-testid="post-card"
-            locale={language}
-          >
-            <a>{title}</a>
-          </Link>
-        </Title>
+      <div>
+        <Link href={getPostUrl(slug)} data-testid="post-card" locale={language}>
+          <h3 className="font-semibold text-xl md:text-3xl mt-3">
+            <a className="relative z-10">{title}</a>
+          </h3>
+        </Link>
 
-        <DateAndTime>
+        <span className="block text-sm md:text-lg font-sans mb-2.5">
           <time dateTime={date}>
             <FormattedDate
               value={new Date(date)}
@@ -75,10 +67,14 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
               day="2-digit"
             />
           </time>
-        </DateAndTime>
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        </span>
+        {subtitle && (
+          <p className="text-lg md:text-2xl font-medium text-gray-500 dark:text-gray-200">
+            {subtitle}
+          </p>
+        )}
         {tags}
-      </Body>
-    </PostCardWrapper>
+      </div>
+    </article>
   );
 };
