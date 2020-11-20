@@ -8,7 +8,7 @@ import { AppThemeProvider } from '@contexts/AppTheme';
 import { blogGlobalStyles } from '@screens/Blog/styles/globals';
 import { GlobalStyles } from '@styles/index';
 import { MenuBar } from '@components/MenuBar';
-import { Container, Tag, Tags, LineDivider } from '@components/Ui';
+import { Container, LineDivider } from '@components/Ui';
 import { DotDivider } from '@components/MdxComponents/DotDivider';
 import { SeriesSection } from './components/SeriesSection';
 import { RelevantPostSerieData } from './utils/series';
@@ -16,6 +16,7 @@ import { RelevantTranslationData } from './utils/translations';
 import { AvailableTranslations } from './components/AvailableTranslations';
 import { getPostUrl } from '@utils/url';
 import { useLocalization } from '@hooks/useLocalization';
+import { Tags } from '@components/Tags';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -43,15 +44,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       {allSeries}
     </>
   ) : null;
-
-  const tags = post_tags && (
-    <Tags>
-      {post_tags.map((tag) => {
-        const { id, name, slug } = tag!;
-        return <Tag key={id} tag={name!} slug={slug!} />;
-      })}
-    </Tags>
-  );
 
   const featuredImage = featured_image ? (
     <FeaturedImage
@@ -94,7 +86,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         <Container as="footer">
           {seriesWithDivider}
           <LineDivider />
-          {tags}
+          {post_tags ? <Tags tags={post_tags} /> : null}
         </Container>
       </AppThemeProvider>
     </>

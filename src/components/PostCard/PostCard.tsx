@@ -3,14 +3,13 @@ import { FormattedDate } from 'react-intl';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Tag, Tags } from '@components/Ui';
 import { isNotNilNorEmpty } from '@utils/utilities';
 import { getPostUrl } from '@utils/url';
 import { PostApiData } from 'src/types/api/posts';
+import { Tags } from '@components/Tags';
 
 type PostCardProps = {
   post: PostApiData;
-  tags?: PostApiData['post_tags'];
 };
 
 export const PostCard: React.FC<PostCardProps> = ({ post }) => {
@@ -31,14 +30,6 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
    */
   const shouldRenderTag =
     isNotNilNorEmpty(post_tags) && typeof post_tags[0] !== 'string';
-
-  const tags = shouldRenderTag ? (
-    <Tags>
-      {post_tags!.map(({ id, name, slug }) => (
-        <Tag key={id} tag={name} slug={slug} />
-      ))}
-    </Tags>
-  ) : null;
 
   return (
     <article className="mb-10">
@@ -73,7 +64,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
             {subtitle}
           </p>
         )}
-        {tags}
+        {shouldRenderTag && <Tags tags={post_tags} />}
       </div>
     </article>
   );
