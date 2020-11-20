@@ -13,6 +13,8 @@ module.exports = {
   variants: {
     extend: {
       fontWeight: ['hover'],
+      boxShadow: ['dark'],
+      borderWidth: ['dark'],
     },
   },
   plugins: [],
