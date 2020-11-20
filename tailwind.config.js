@@ -8,7 +8,11 @@ module.exports = {
       serif: ['Merriweather'],
       title: ['content-title'],
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        spacing: 'margin, padding',
+      },
+    },
   },
   variants: {
     extend: {

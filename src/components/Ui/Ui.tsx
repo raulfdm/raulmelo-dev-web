@@ -1,4 +1,4 @@
-import { styled, media, css } from '@styles/styled';
+import { styled, css } from '@styles/styled';
 import { motion } from 'framer-motion';
 import React from 'react';
 
@@ -45,23 +45,4 @@ export const headingLinkStyle = css`
     visibility: hidden;
     transition: visibility 0.2s ease-in-out;
   }
-`;
-
-export const Card = styled.div`
-  --card-border-radius: 5px;
-  --card-white-space: 1.6rem;
-  position: relative;
-  background-color: ${({ theme }) => theme.color.background};
-  border-radius: var(--card-border-radius);
-  border: ${({ theme }) =>
-    theme.isDarkTheme ? `1px solid ${theme.color.border}` : 'none'};
-  box-shadow: ${({ theme }) =>
-      theme.isDarkTheme ? 'transparent' : theme.color.shadowLight}
-    0 1px 4px;
-  margin-bottom: 2.4rem;
-  padding: var(--card-white-space);
-
-  ${media.greaterThan('medium')`
-    --card-white-space: 2.4rem;
-  `}
 `;
