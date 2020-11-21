@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 export const Section = (props: React.ComponentPropsWithoutRef<'section'>) => (
   <section className="mb-4" {...props} />
 );
@@ -9,9 +11,15 @@ export const SectionTitle = (props: React.ComponentPropsWithoutRef<'h2'>) => (
   />
 );
 
-export const SectionBody = (props: React.ComponentPropsWithoutRef<'div'>) => (
+export const SectionBody = ({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'>) => (
   <>
-    <div className="text-base md:text-lg py-3 md:py-4" {...props} />
+    <div
+      className={classNames(['text-base md:text-lg py-3 md:py-4', className])}
+      {...props}
+    />
     <style global jsx>{`
       p {
         margin-bottom: 1rem !important;
