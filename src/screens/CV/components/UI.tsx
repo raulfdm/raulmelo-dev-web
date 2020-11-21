@@ -2,20 +2,6 @@ import Link from 'next/link';
 
 import { styled } from '@screens/CV/styled';
 
-export const CVMain = styled.main`
-  max-width: 798px;
-  width: 100%;
-  padding: 0 14px;
-  margin: 0 auto;
-  position: relative;
-  padding-top: 46px;
-
-  @media screen and (min-width: 515px) {
-    padding: 0 16px;
-    padding-top: 26px;
-  }
-`;
-
 export const HomeLink = styled(Link)`
   position: absolute;
   left: 12px;
