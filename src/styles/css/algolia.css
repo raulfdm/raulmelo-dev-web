@@ -1,0 +1,29 @@
+.ais-SearchBox-form {
+  @apply flex;
+}
+
+.ais-SearchBox-input {
+  @apply bg-transparent;
+  @apply w-full;
+  @apply text-3xl font-light md:text-4xl;
+  @apply border-b;
+  @apply pb-3;
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-SearchBox-reset {
+  @apply text-base;
+  @apply p-5;
+}
+
+.ais-SearchBox-reset {
+  fill: currentColor;
+}
+
+.ais-Stats {
+  @apply text-base font-bold;
+  @apply mb-6;
+}
