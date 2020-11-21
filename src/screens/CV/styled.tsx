@@ -32,53 +32,7 @@ export type CvTheme = typeof theme;
 
 export { css } from 'styled-components';
 
-export const styled = (defaultStyled as unknown) as ThemedStyledInterface<
-  CvTheme
->;
-
-const globalCss = css`
-  html,
-  body,
-  #___gatsby {
-    height: 100%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: ${theme.font.sans};
-    font-weight: bold;
-  }
-  body {
-    font-family: ${theme.font.serif};
-    color: ${theme.color.black};
-    line-height: 1.6;
-  }
-  a {
-    color: ${theme.color.black};
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  a {
-    margin: 0;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    list-style: none;
-    display: inline;
-  }
-`;
+export const styled = (defaultStyled as unknown) as ThemedStyledInterface<CvTheme>;
 
 const printGlobals = css`
   @media print {
@@ -109,5 +63,4 @@ const printGlobals = css`
 
 export const GlobalCVStyles = createGlobalStyle`
   ${printGlobals};
-  ${globalCss};
 `;
