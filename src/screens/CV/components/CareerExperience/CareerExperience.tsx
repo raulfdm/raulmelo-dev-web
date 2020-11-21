@@ -19,7 +19,7 @@ export const CareerExperience: React.FC<CareerExperienceProps> = ({ jobs }) => {
   return (
     <StyledSection>
       <SectionTitle>Career History</SectionTitle>
-      <SectionBody>
+      <SectionBody className="space-y-4 md:space-y-6">
         {jobs!.map((job) => {
           const {
             role,
