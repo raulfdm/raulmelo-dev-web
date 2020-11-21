@@ -1,13 +1,11 @@
+import classNames from 'classnames';
+import Link from 'next/link';
 import { ArrowheadUp } from '@styled-icons/evaicons-solid/ArrowheadUp';
-import { ThemeProvider } from 'styled-components';
 
-import { theme } from '@screens/CV/styled';
 import { useScrollToTop } from '@hooks/useScrollToTop';
 import { SEO } from '@components/SEO';
 import {
   Info,
-  HomeLink,
-  ScrollToTopButton,
   CareerSummary,
   TechnicalSkills,
   CareerExperience,
@@ -15,9 +13,7 @@ import {
   Education,
   Interests,
 } from './components';
-import { GlobalCVStyles } from './styled';
 import { CvApiDataProps } from './types';
-import classNames from 'classnames';
 
 export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
   const { moveToTop } = useScrollToTop();
@@ -44,31 +40,72 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
           rel="stylesheet"
         />
       </SEO>
-      <ThemeProvider theme={theme}>
-        <GlobalCVStyles />
-        <HomeLink href="/">Back to home</HomeLink>
-        <main
+
+      <Link href="/">
+        <a className="underline absolute left-3 top-3 print:hidden">
+          Back to home
+        </a>
+      </Link>
+
+      <main
+        className={classNames([
+          'container',
+          'px-4 md:px-0',
+          ' mx-auto max-w-screen-md',
+          'font-cv-sans',
+          'relative',
+          'pt-6 sm:pt-4',
+        ])}
+      >
+        <Info {...personalInfo} />
+        <CareerSummary summary={summary} />
+        <TechnicalSkills technical_skills={technical_skills} />
+        <CareerExperience jobs={jobs} />
+        <SideProjects side_projects={side_projects} />
+        <Education education={education!} />
+        <Interests interests={interests} />
+        <button
           className={classNames([
-            'container',
-            'px-4 md:px-0',
-            ' mx-auto max-w-screen-md',
-            'font-cv-sans',
-            'relative',
-            'pt-6 sm:pt-4',
+            'fixed',
+            'bottom-4 right-4',
+            'bg-white',
+            'rounded-full',
+            'shadow-lg',
+            'w-10 h-10',
+            'hover:transform hover:scale-110 transition-transform duration-100 ease-in-out',
           ])}
+          onClick={moveToTop}
         >
-          <Info {...personalInfo} />
-          <CareerSummary summary={summary} />
-          <TechnicalSkills technical_skills={technical_skills} />
-          <CareerExperience jobs={jobs} />
-          <SideProjects side_projects={side_projects} />
-          <Education education={education!} />
-          <Interests interests={interests} />
-          <ScrollToTopButton onClick={moveToTop}>
-            <ArrowheadUp size={21} />
-          </ScrollToTopButton>
-        </main>
-      </ThemeProvider>
+          <ArrowheadUp size={21} />
+        </button>
+      </main>
+
+      <style global jsx>{`
+        @media print {
+          @page {
+            size: auto;
+            margin: 0;
+            padding: 1cm 1cm 1cm 1cm;
+            margin: 0;
+            size: A4;
+          }
+
+          html {
+            max-width: 21cm;
+            font-size: 1rem;
+            padding: 0;
+            margin: 0 auto;
+          }
+
+          button {
+            display: none !important;
+          }
+
+          a {
+            text-decoration: none;
+          }
+        }
+      `}</style>
     </>
   );
 };
