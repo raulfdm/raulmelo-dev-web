@@ -27,6 +27,8 @@ module.exports = {
       fontWeight: ['hover'],
       boxShadow: ['dark'],
       borderWidth: ['dark'],
+      scale: ['hover'],
+      transform: ['hover'],
     },
   },
   plugins: [],
