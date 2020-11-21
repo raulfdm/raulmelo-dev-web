@@ -1,33 +1,21 @@
-import { styled, css } from '@screens/CV/styled';
+export const Section = (props: React.ComponentPropsWithoutRef<'section'>) => (
+  <section className="mb-4" {...props} />
+);
 
-export const Section = styled.section`
-  margin-bottom: 16px;
-`;
+export const SectionTitle = (props: React.ComponentPropsWithoutRef<'h2'>) => (
+  <h2
+    className="font-serif text-xl md:text-2xl font-bold border-b"
+    {...props}
+  />
+);
 
-export const SectionTitle = styled.h2`
-  ${({ theme }) => css`
-    font-size: ${theme.pxToRem(22)};
-
-    border-bottom: 1px solid ${theme.color.grey};
-
-    @media screen and (min-width: ${theme.sizes.tablet}) {
-      font-size: ${theme.pxToRem(30)};
-    }
-  `}
-`;
-
-export const SectionBody = styled.div`
-  ${({ theme }) => css`
-    font-size: ${theme.pxToRem(16)};
-    padding: ${theme.pxToRem(12)} 0;
-
-    p {
-      margin-bottom: 16px;
-    }
-
-    @media screen and (min-width: ${theme.sizes.tablet}) {
-      font-size: ${theme.pxToRem(18)};
-      padding: ${theme.pxToRem(16)} 0;
-    }
-  `}
-`;
+export const SectionBody = (props: React.ComponentPropsWithoutRef<'div'>) => (
+  <>
+    <div className="text-base md:text-lg py-3 md:py-4" {...props} />
+    <style global jsx>{`
+      p {
+        margin-bottom: 1rem !important;
+      }
+    `}</style>
+  </>
+);
