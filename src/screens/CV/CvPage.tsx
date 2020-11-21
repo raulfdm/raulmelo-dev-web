@@ -47,7 +47,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
       <ThemeProvider theme={theme}>
         <GlobalCVStyles />
         <HomeLink href="/">Back to home</HomeLink>
-        <CVMain>
+        <CVMain className="font-cv-sans">
           <Info {...personalInfo} />
           <CareerSummary summary={summary} />
           <TechnicalSkills technical_skills={technical_skills} />
