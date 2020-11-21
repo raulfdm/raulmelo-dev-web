@@ -12,6 +12,9 @@ module.exports = {
       transitionProperty: {
         spacing: 'margin, padding',
       },
+      borderWidth: {
+        10: '10px',
+      },
     },
   },
   variants: {
