@@ -2,10 +2,11 @@ import { defineMessage } from 'react-intl';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import classNames from 'classnames';
 
 import { useLocalization } from '@hooks/useLocalization';
 import { useApp } from '@hooks/useApp';
-import { Nav, StyledLink, Overlay } from './styles';
 
 const messages = defineMessage({
   home: {
@@ -64,8 +65,19 @@ export const SideMenu = () => {
 
   return (
     <>
-      <Nav
-        isCollapsed={isCollapsed}
+      <motion.nav
+        className={classNames([
+          'fixed',
+          'bottom-0 top-16 right-0',
+          'h-full',
+          'bg-white dark:bg-gray-800',
+          'z-20',
+          'transform translate-x-full',
+          'flex flex-col',
+          'w-auto sm:w-52 md:w-64',
+          'py-2',
+          'space-y-3',
+        ])}
         animate={animate}
         variants={{
           open: {
@@ -80,19 +92,31 @@ export const SideMenu = () => {
         {links.map(({ href, localeId }) => {
           return (
             <Link key={localeId.id} href={href}>
-              <StyledLink
-                $isCurrentPage={pathname === href}
+              <a
+                className={classNames([
+                  'cursor-pointer',
+                  'font-serif text-lg font-bold',
+                  'mx-5',
+                  pathname === href &&
+                    'pl-3 border-l-2 border-gray-800 dark:border-gray-300',
+                ])}
                 onClick={toggle}
                 data-testid={`${localeId.id}-link`}
               >
                 {formatMessage(localeId)}
-              </StyledLink>
+              </a>
             </Link>
           );
         })}
-      </Nav>
+      </motion.nav>
       {!isCollapsed ? (
-        <Overlay
+        <motion.div
+          className={classNames([
+            'absolute',
+            'inset-0',
+            'z-10',
+            'bg-black bg-opacity-80',
+          ])}
           style={{
             pointerEvents: isCollapsed ? 'none' : 'all',
           }}
