@@ -34,7 +34,7 @@ export const Info: React.FC<InfoProps> = ({
   const cityAndCountry = `${city}, ${country}`;
 
   return (
-    <div className="text-center mb-4">
+    <section className="text-center mb-4 mt-6 md:mt-2">
       <h1 className="text-3xl lg:text-4xl font-cv-serif font-bold">
         {full_name}
       </h1>
@@ -66,6 +66,6 @@ export const Info: React.FC<InfoProps> = ({
           </Link>
         </li>
       </ul>
-    </div>
+    </section>
   );
 };
