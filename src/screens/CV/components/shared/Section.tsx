@@ -17,11 +17,15 @@ export const SectionBody = ({
 }: React.ComponentPropsWithoutRef<'div'>) => (
   <>
     <div
-      className={classNames(['text-base md:text-lg py-3 md:py-4', className])}
+      className={classNames([
+        'text-base md:text-lg py-3 md:py-4',
+        'sectionBody',
+        className,
+      ])}
       {...props}
     />
     <style global jsx>{`
-      p {
+      .sectionBody p:not(:last-child) {
         margin-bottom: 1rem !important;
       }
     `}</style>
