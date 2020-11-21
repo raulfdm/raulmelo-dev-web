@@ -4,11 +4,16 @@ module.exports = {
   theme: {
     fontFamily: {
       // TODO: add fallbacks
-      sans: ['Open Sans'],
-      serif: ['Merriweather'],
-      title: ['content-title'],
+      sans: [`"Open Sans"`],
+      serif: [`"Merriweather"`],
+      title: [`"content-title"`],
+      'cv-sans': [`"Raleway"`],
+      'cv-serif': [`"Lora"`],
     },
     extend: {
+      screens: {
+        print: { raw: 'print' },
+      },
       transitionProperty: {
         spacing: 'margin, padding',
       },
@@ -22,6 +27,8 @@ module.exports = {
       fontWeight: ['hover'],
       boxShadow: ['dark'],
       borderWidth: ['dark'],
+      scale: ['hover'],
+      transform: ['hover'],
     },
   },
   plugins: [],
