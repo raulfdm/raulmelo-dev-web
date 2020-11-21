@@ -6,7 +6,6 @@ import { useScrollToTop } from '@hooks/useScrollToTop';
 import { SEO } from '@components/SEO';
 import {
   Info,
-  CVMain,
   HomeLink,
   ScrollToTopButton,
   CareerSummary,
@@ -18,6 +17,7 @@ import {
 } from './components';
 import { GlobalCVStyles } from './styled';
 import { CvApiDataProps } from './types';
+import classNames from 'classnames';
 
 export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
   const { moveToTop } = useScrollToTop();
@@ -47,7 +47,16 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
       <ThemeProvider theme={theme}>
         <GlobalCVStyles />
         <HomeLink href="/">Back to home</HomeLink>
-        <CVMain className="font-cv-sans">
+        <main
+          className={classNames([
+            'container',
+            'px-4 md:px-0',
+            ' mx-auto max-w-screen-md',
+            'font-cv-sans',
+            'relative',
+            'pt-6 sm:pt-4',
+          ])}
+        >
           <Info {...personalInfo} />
           <CareerSummary summary={summary} />
           <TechnicalSkills technical_skills={technical_skills} />
@@ -58,7 +67,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
           <ScrollToTopButton onClick={moveToTop}>
             <ArrowheadUp size={21} />
           </ScrollToTopButton>
-        </CVMain>
+        </main>
       </ThemeProvider>
     </>
   );
