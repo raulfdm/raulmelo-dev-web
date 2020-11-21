@@ -12,7 +12,6 @@ import { HitAlgolia } from '@types-app';
 import { PostCard } from '@components/PostCard';
 import { MenuBar } from '@components/MenuBar';
 import { algoliaDebounceSearchClient } from './utils';
-import { PoweredBy, SearchWrapper, SearchBoxWrapper } from './styled';
 
 const messages = defineMessages({
   stats: {
@@ -42,12 +41,12 @@ export const SearchPage = () => {
         <GlobalStyles />
         <MenuBar />
 
-        <SearchWrapper as="main">
+        <main className="font-san container mx-auto px-4 md:px-0 max-w-screen-md">
           <InstantSearch
             searchClient={algoliaDebounceSearchClient}
             indexName={algoliaConfig.indexName}
           >
-            <SearchBoxWrapper>
+            <div className="pb-5 md:pb-10">
               <SearchBox
                 searchAsYouType
                 autoFocus
@@ -64,11 +63,11 @@ export const SearchPage = () => {
                 }}
               />
               <AlgoliaHits />
-            </SearchBoxWrapper>
+            </div>
 
             <PoweredByAlgolia />
           </InstantSearch>
-        </SearchWrapper>
+        </main>
       </AppThemeProvider>
     </>
   );
@@ -76,9 +75,12 @@ export const SearchPage = () => {
 
 function PoweredByAlgolia() {
   return (
-    <PoweredBy href="https://www.algolia.com/">
+    <a
+      className="flex justify-end items-center font-medium font-sans text-base"
+      href="https://www.algolia.com/"
+    >
       Powered by <Algolia size="2rem" color="#5468ff" /> Algolia
-    </PoweredBy>
+    </a>
   );
 }
 
