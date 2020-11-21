@@ -6,7 +6,7 @@ export const Section = (props: React.ComponentPropsWithoutRef<'section'>) => (
 
 export const SectionTitle = (props: React.ComponentPropsWithoutRef<'h2'>) => (
   <h2
-    className="font-serif text-xl md:text-2xl font-bold border-b"
+    className="font-serif text-xl md:text-3xl pb-1 md:pb-2 font-bold border-b"
     {...props}
   />
 );
@@ -18,7 +18,9 @@ export const SectionBody = ({
   <>
     <div
       className={classNames([
-        'text-base md:text-lg py-3 md:py-4',
+        'text-base md:text-lg',
+        'py-3 md:py-4',
+        'space-y-4',
         'sectionBody',
         className,
       ])}

@@ -51,7 +51,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
         className={classNames([
           'container',
           'px-4 md:px-0',
-          ' mx-auto max-w-screen-md',
+          'mx-auto max-w-screen-md',
           'font-cv-sans',
           'relative',
           'pt-6 sm:pt-4',

@@ -18,7 +18,7 @@ export const Education: React.FC<EducationProps> = ({ education }) => {
   return (
     <Section>
       <SectionTitle>Education and Languages</SectionTitle>
-      <SectionBody>
+      <SectionBody className="space-y-1">
         <Formal formal={formal} />
         <Languages languages={languages!} />
       </SectionBody>

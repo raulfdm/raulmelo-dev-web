@@ -22,7 +22,7 @@ export const Project: React.FC<ProjectProps> = ({
 }) => {
   return (
     <article className="project">
-      <h3 className="text-base md:text-xl font-bold">{title}</h3>
+      <h3 className="text-base md:text-xl font-bold font-cv-serif">{title}</h3>
       <div className="flex flex-col md:flex-row mb-2 mt-2 md:mt-0">
         {subtitle && <h4 className="flex-1">{subtitle}</h4>}
         <p className="text-sm text-black text-opacity-60">

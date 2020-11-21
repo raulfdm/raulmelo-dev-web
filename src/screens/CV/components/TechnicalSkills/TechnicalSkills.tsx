@@ -17,7 +17,7 @@ export const TechnicalSkills = ({ technical_skills }: TechnicalSkillsProps) => {
 
           return (
             <div key={id} className="flex flex-col flex-wrap align-baseline">
-              <h3 className="font-bold">{name}:</h3>
+              <h3 className="font-bold font-cv-serif text-xl">{name}:</h3>
               <ul className="flex-1 flex flex-row space-x-1.5 flex-wrap">
                 {technologies!.map((tech, index) => {
                   const { id, name } = tech;
