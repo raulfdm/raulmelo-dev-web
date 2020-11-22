@@ -42,8 +42,7 @@
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.2.0",
     "styled-icons": "^10.22.0",
-    "styled-media-query": "^2.1.2",
-    "typography": "^0.16.19"
+    "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.1",
