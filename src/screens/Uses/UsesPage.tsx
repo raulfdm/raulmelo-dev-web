@@ -1,8 +1,6 @@
 import React from 'react';
 
 import { AppThemeProvider } from '@contexts/AppTheme';
-import { blogGlobalStyles } from '@screens/Blog/styles/globals';
-import { GlobalStyles } from '@styles/index';
 import { MenuBar } from '@components/MenuBar';
 import { Container } from '@components/Ui';
 import { useLocalization } from '@hooks/useLocalization';
@@ -26,7 +24,6 @@ export const UsesPage: React.FC<UsesPageProps> = ({ children, seo }) => {
         url={getPostUrl('uses', locale)}
       />
       <AppThemeProvider>
-        <GlobalStyles global={blogGlobalStyles} />
         <MenuBar />
         <Container as="main">{children}</Container>
       </AppThemeProvider>
