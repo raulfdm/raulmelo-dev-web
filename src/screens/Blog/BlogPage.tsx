@@ -1,12 +1,8 @@
-import React from 'react';
-
 import { SEO } from '@components/SEO';
 import { PostApiData } from '@types-api';
 import { Header } from './components/Header';
 import { FeaturedImage } from './components/FeaturedImage';
 import { AppThemeProvider } from '@contexts/AppTheme';
-import { blogGlobalStyles } from '@screens/Blog/styles/globals';
-import { GlobalStyles } from '@styles/index';
 import { MenuBar } from '@components/MenuBar';
 import { Container, LineDivider } from '@components/Ui';
 import { DotDivider } from '@components/MdxComponents/DotDivider';
@@ -69,6 +65,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"
+        />
+        <link rel="stylesheet" href="/styles/blog.css" />
         <script
           async
           src="https://platform.twitter.com/widgets.js"
@@ -76,13 +77,14 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         />
       </SEO>
       <AppThemeProvider>
-        <GlobalStyles global={blogGlobalStyles} />
         <MenuBar />
         <Header title={post.title} subtitle={post.subtitle} />
         {translations}
         {allSeries}
         {featuredImage}
-        <Container as="article">{content}</Container>
+        <article className="prose lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
+          {content}
+        </article>
         <Container as="footer">
           {seriesWithDivider}
           <LineDivider />
