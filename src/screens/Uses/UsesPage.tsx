@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { AppThemeProvider } from '@contexts/AppTheme';
 import { MenuBar } from '@components/MenuBar';
 import { Container } from '@components/Ui';
 import { useLocalization } from '@hooks/useLocalization';
@@ -23,10 +22,8 @@ export const UsesPage: React.FC<UsesPageProps> = ({ children, seo }) => {
         description={seo.description}
         url={getPostUrl('uses', locale)}
       />
-      <AppThemeProvider>
-        <MenuBar />
-        <Container as="main">{children}</Container>
-      </AppThemeProvider>
+      <MenuBar />
+      <Container as="main">{children}</Container>
     </>
   );
 };
