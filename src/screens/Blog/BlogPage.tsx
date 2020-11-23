@@ -1,19 +1,18 @@
-import { SEO } from '@components/SEO';
-import { PostApiData } from '@types-api';
-import { Header } from './components/Header';
-import { FeaturedImage } from './components/FeaturedImage';
-import { AppThemeProvider } from '@contexts/AppTheme';
-import { MenuBar } from '@components/MenuBar';
-import { Container, LineDivider } from '@components/Ui';
+import { AvailableTranslations } from './components/AvailableTranslations';
 import { DotDivider } from '@components/MdxComponents/DotDivider';
-import { SeriesSection } from './components/SeriesSection';
+import { FeaturedImage } from './components/FeaturedImage';
+import { getPostUrl } from '@utils/url';
+import { Header } from './components/Header';
+import { MenuBar } from '@components/MenuBar';
+import { PostApiData } from '@types-api';
+import { PrismStyles } from './components/PrismStyles';
 import { RelevantPostSerieData } from './utils/series';
 import { RelevantTranslationData } from './utils/translations';
-import { AvailableTranslations } from './components/AvailableTranslations';
-import { getPostUrl } from '@utils/url';
-import { useLocalization } from '@hooks/useLocalization';
+import { SEO } from '@components/SEO';
+import { SeriesSection } from './components/SeriesSection';
 import { Tags } from '@components/Tags';
-import { PrismStyles } from './components/PrismStyles';
+import { useLocalization } from '@hooks/useLocalization';
+import { AppThemeProvider } from '@contexts/AppTheme';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -82,11 +81,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         <article className="prose dark:prose-dark prose-lg lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
           {content}
         </article>
-        <Container as="footer">
+        <footer className="container mx-auto px-4 md:px-0 max-w-screen-md">
           {seriesWithDivider}
-          <LineDivider />
+          <hr className="mt-10 mb-6" />
           {post_tags ? <Tags tags={post_tags} /> : null}
-        </Container>
+        </footer>
         <style global jsx>{`
           #__next {
             padding-top: calc(64px + 24px);
