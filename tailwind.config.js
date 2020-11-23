@@ -4,7 +4,7 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: false,
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
       // TODO: add fallbacks
@@ -15,6 +15,9 @@ module.exports = {
       'cv-serif': [`"Lora"`],
     },
     extend: {
+      color: {
+        black: '#111111',
+      },
       screens: {
         print: { raw: 'print' },
       },
@@ -24,6 +27,43 @@ module.exports = {
       borderWidth: {
         10: '10px',
       },
+      // TODO: implement some overrides here
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            // TODO: fix that when fix all theming dark/light
+            color: 'black',
+            fontFamily: theme('fontFamily.serif'),
+            h2: {
+              fontFamily: theme('fontFamily.sans'),
+            },
+            h3: {
+              fontFamily: theme('fontFamily.sans'),
+            },
+            h4: {
+              fontFamily: theme('fontFamily.sans'),
+            },
+            h5: {
+              fontFamily: theme('fontFamily.sans'),
+            },
+            h6: {
+              fontFamily: theme('fontFamily.sans'),
+            },
+            blockquote: {
+              borderLeftColor: 'black',
+            },
+          },
+        },
+
+        dark: {
+          css: {
+            color: 'white',
+            blockquote: {
+              borderLeftColor: 'white',
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
@@ -34,6 +74,7 @@ module.exports = {
       scale: ['hover'],
       transform: ['hover'],
     },
+    typography: ['dark'],
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
