@@ -3,8 +3,6 @@ import { Algolia } from '@styled-icons/boxicons-logos/Algolia';
 import { defineMessages } from 'react-intl';
 import { InstantSearch, SearchBox, Hits, Stats } from 'react-instantsearch-dom';
 
-import { AppThemeProvider } from '@contexts/AppTheme';
-import { GlobalStyles } from '@styles/index';
 import { SEO } from '@components/SEO';
 import { useLocalization } from '@hooks/useLocalization';
 import { algoliaConfig } from '@config/algolia';
@@ -37,38 +35,34 @@ export const SearchPage = () => {
         description={formatMessage(messages.seoDescription)}
         title={formatMessage(messages.seoTitle)}
       />
-      <AppThemeProvider>
-        <GlobalStyles />
-        <MenuBar />
+      <MenuBar />
+      <main className="font-san container mx-auto px-4 md:px-0 max-w-screen-md">
+        <InstantSearch
+          searchClient={algoliaDebounceSearchClient}
+          indexName={algoliaConfig.indexName}
+        >
+          <div className="pb-5 md:pb-10">
+            <SearchBox
+              searchAsYouType
+              autoFocus
+              translations={{ placeholder: formatMessage(messages.input) }}
+            />
+            <Stats
+              translations={{
+                stats(results, milliseconds) {
+                  return formatMessage(messages.stats, {
+                    results,
+                    milliseconds,
+                  });
+                },
+              }}
+            />
+            <AlgoliaHits />
+          </div>
 
-        <main className="font-san container mx-auto px-4 md:px-0 max-w-screen-md">
-          <InstantSearch
-            searchClient={algoliaDebounceSearchClient}
-            indexName={algoliaConfig.indexName}
-          >
-            <div className="pb-5 md:pb-10">
-              <SearchBox
-                searchAsYouType
-                autoFocus
-                translations={{ placeholder: formatMessage(messages.input) }}
-              />
-              <Stats
-                translations={{
-                  stats(results, milliseconds) {
-                    return formatMessage(messages.stats, {
-                      results,
-                      milliseconds,
-                    });
-                  },
-                }}
-              />
-              <AlgoliaHits />
-            </div>
-
-            <PoweredByAlgolia />
-          </InstantSearch>
-        </main>
-      </AppThemeProvider>
+          <PoweredByAlgolia />
+        </InstantSearch>
+      </main>
     </>
   );
 };
