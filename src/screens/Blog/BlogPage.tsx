@@ -13,6 +13,7 @@ import { AvailableTranslations } from './components/AvailableTranslations';
 import { getPostUrl } from '@utils/url';
 import { useLocalization } from '@hooks/useLocalization';
 import { Tags } from '@components/Tags';
+import { PrismStyles } from './components/PrismStyles';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -65,11 +66,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css"
-        />
-        <link rel="stylesheet" href="/styles/blog.css" />
         <script
           async
           src="https://platform.twitter.com/widgets.js"
@@ -79,10 +75,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       <AppThemeProvider>
         <MenuBar />
         <Header title={post.title} subtitle={post.subtitle} />
+        <PrismStyles />
         {translations}
         {allSeries}
         {featuredImage}
-        <article className="prose lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
+        <article className="prose dark:prose-dark prose-lg lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
           {content}
         </article>
         <Container as="footer">
@@ -90,6 +87,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           <LineDivider />
           {post_tags ? <Tags tags={post_tags} /> : null}
         </Container>
+        <style global jsx>{`
+          #__next {
+            padding-top: calc(64px + 24px);
+            padding-bottom: 5rem;
+          }
+        `}</style>
       </AppThemeProvider>
     </>
   );

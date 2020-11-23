@@ -1,22 +1,18 @@
-import { styled } from '@styles/styled';
-
-export const DotDivider = styled.hr`
-  position: relative;
-  font-style: italic;
-  font-size: 28px;
-  font-weight: 300;
-  margin-top: 0;
-  height: 39px;
-  background-color: transparent;
-  text-align: center;
-  transform: translateX(-71px);
-
-  &::before {
-    content: '...';
-    letter-spacing: 0.6em;
-    text-indent: 0.6em;
-    line-height: 1.4;
-    position: absolute;
-    top: -13%;
-  }
-`;
+export const DotDivider = (props: React.ComponentPropsWithoutRef<'hr'>) => (
+  <>
+    <hr className="relative italic text-2xl" {...props} />
+    <style jsx>{`
+      hr {
+        border-color: transparent;
+        position: relative;
+      }
+      hr::before {
+        content: '...';
+        letter-spacing: 0.6em;
+        position: absolute;
+        top: -26px;
+        right: calc(50% - 32px);
+      }
+    `}</style>
+  </>
+);
