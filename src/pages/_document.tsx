@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="h-auto">
+        <body className="h-auto bg-white dark:bg-gray-800">
           {/* Global Theme handler */}
           <script
             dangerouslySetInnerHTML={{
