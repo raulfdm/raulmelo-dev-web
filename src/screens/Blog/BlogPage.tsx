@@ -12,7 +12,6 @@ import { SEO } from '@components/SEO';
 import { SeriesSection } from './components/SeriesSection';
 import { Tags } from '@components/Tags';
 import { useLocalization } from '@hooks/useLocalization';
-import { AppThemeProvider } from '@contexts/AppTheme';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -71,28 +70,26 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           charSet="utf-8"
         />
       </SEO>
-      <AppThemeProvider>
-        <MenuBar />
-        <Header title={post.title} subtitle={post.subtitle} />
-        <PrismStyles />
-        {translations}
-        {allSeries}
-        {featuredImage}
-        <article className="prose dark:prose-dark prose-lg lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
-          {content}
-        </article>
-        <footer className="container mx-auto px-4 md:px-0 max-w-screen-md">
-          {seriesWithDivider}
-          <hr className="mt-10 mb-6" />
-          {post_tags ? <Tags tags={post_tags} /> : null}
-        </footer>
-        <style global jsx>{`
-          #__next {
-            padding-top: calc(64px + 24px);
-            padding-bottom: 5rem;
-          }
-        `}</style>
-      </AppThemeProvider>
+      <MenuBar />
+      <Header title={post.title} subtitle={post.subtitle} />
+      <PrismStyles />
+      {translations}
+      {allSeries}
+      {featuredImage}
+      <article className="prose dark:prose-dark prose-lg lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
+        {content}
+      </article>
+      <footer className="container mx-auto px-4 md:px-0 max-w-screen-md">
+        {seriesWithDivider}
+        <hr className="mt-10 mb-6" />
+        {post_tags ? <Tags tags={post_tags} /> : null}
+      </footer>
+      <style global jsx>{`
+        #__next {
+          padding-top: calc(64px + 24px);
+          padding-bottom: 5rem;
+        }
+      `}</style>
     </>
   );
 };
