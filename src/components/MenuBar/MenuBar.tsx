@@ -69,6 +69,12 @@ export const MenuBar: FC = () => {
         </div>
       </motion.section>
       <SideMenu />
+      <style global jsx>{`
+        #__next {
+          padding-top: calc(64px + 24px);
+          padding-bottom: 5rem;
+        }
+      `}</style>
     </>
   );
 };

@@ -84,12 +84,6 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         <hr className="mt-10 mb-6" />
         {post_tags ? <Tags tags={post_tags} /> : null}
       </footer>
-      <style global jsx>{`
-        #__next {
-          padding-top: calc(64px + 24px);
-          padding-bottom: 5rem;
-        }
-      `}</style>
     </>
   );
 };
