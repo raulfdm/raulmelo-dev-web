@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { Container } from '@components/Ui';
-import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline/ArrowIosDownwardOutline';
 import { RelevantPostSerieData } from '@screens/Blog/utils/series';
+import { ChevronDown } from '@icons';
 
 interface SeriesSectionProps {
   currentPostId: string;
@@ -155,7 +155,7 @@ const Header = ({ isOpen, toggleSection, name }: HeaderProps) => {
           collapsed: { rotate: '180deg' },
         }}
       >
-        <ArrowIosDownwardOutline size={21} />
+        <ChevronDown className="w-5" />
       </motion.button>
     </div>
   );

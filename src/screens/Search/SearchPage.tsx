@@ -1,5 +1,4 @@
 import React from 'react';
-import { Algolia } from '@styled-icons/boxicons-logos/Algolia';
 import { defineMessages } from 'react-intl';
 import { InstantSearch, SearchBox, Hits, Stats } from 'react-instantsearch-dom';
 
@@ -9,6 +8,7 @@ import { algoliaConfig } from '@config/algolia';
 import { HitAlgolia } from '@types-app';
 import { PostCard } from '@components/PostCard';
 import { MenuBar } from '@components/MenuBar';
+import { Algolia } from '@icons';
 import { algoliaDebounceSearchClient } from './utils';
 
 const messages = defineMessages({
@@ -73,7 +73,7 @@ function PoweredByAlgolia() {
       className="flex justify-end items-center font-medium font-sans text-base"
       href="https://www.algolia.com/"
     >
-      Powered by <Algolia size="2rem" color="#5468ff" /> Algolia
+      Powered by <Algolia className="w-8" color="#5468ff" /> Algolia
     </a>
   );
 }

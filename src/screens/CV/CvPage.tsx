@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { ArrowheadUp } from '@styled-icons/evaicons-solid/ArrowheadUp';
 
 import { useScrollToTop } from '@hooks/useScrollToTop';
 import { SEO } from '@components/SEO';
+import { ChevronDoubleUp } from '@icons';
 import {
   Info,
   CareerSummary,
@@ -73,10 +73,11 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
             'shadow-lg',
             'w-10 h-10',
             'hover:transform hover:scale-110 transition-transform duration-100 ease-in-out',
+            'flex items-center justify-center',
           ])}
           onClick={moveToTop}
         >
-          <ArrowheadUp size={21} />
+          <ChevronDoubleUp width={21} />
         </button>
       </main>
 

@@ -6,6 +6,7 @@ import { Logo } from '@components/Logo';
 import { SideMenuNavIcon, SideMenu } from '@components/SideMenu';
 import { ThemeSwitch } from './components/ThemeSwitch';
 import { LanguageSwitch } from './components/LanguageSwitch';
+import classNames from 'classnames';
 
 export const MenuBar: FC = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -72,7 +73,14 @@ export const MenuBar: FC = () => {
   );
 };
 
-// TODO: fix this props
-export const MenuButton = (props: any) => {
-  return <button className="p-2 flex place-content-center" {...props} />;
+export const MenuButton = ({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'button'>) => {
+  return (
+    <button
+      className={classNames(['p-2 flex place-content-center', className])}
+      {...props}
+    />
+  );
 };
