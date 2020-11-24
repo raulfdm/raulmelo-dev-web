@@ -1,17 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { defineMessage, FormattedMessage } from 'react-intl';
-/**
- * Keep importing like separately to
- * grasp tree shaking and reduce bundle size.
- */
-import { Twitter } from '@styled-icons/boxicons-logos/Twitter';
-import { Linkedin } from '@styled-icons/boxicons-logos/Linkedin';
-import { Github } from '@styled-icons/boxicons-logos/Github';
+import classNames from 'classnames';
 
 import { PersonalInformationApiData } from '@types-api';
 import { siteData } from '@data/siteData';
 import { useLocalization } from '@hooks/useLocalization';
+import { Twitter, Github, LinkedIn } from '@icons';
 import styles from './AuthorPresentation.module.css';
 
 type Props = {
@@ -21,10 +16,9 @@ type Props = {
 
 const message = defineMessage({ id: 'authorPresentation.profileImageAlt' });
 
-/* TODO: fix these props */
-const SocialLink = (props: any) => (
+const SocialLink = (props: React.ComponentPropsWithoutRef<'a'>) => (
   <a
-    className={`mr-4 cursor-pointer relative ${styles.SocialLink}`}
+    className={classNames(['mr-4 cursor-pointer relative', styles.SocialLink])}
     {...props}
   />
 );
@@ -54,19 +48,19 @@ export const AuthorPresentation: React.FC<Props> = ({
             href={siteData.social.github.url}
             data-testid="author__githubUrl"
           >
-            <Github size={21} />
+            <Github />
           </SocialLink>
           <SocialLink
             href={siteData.social.twitter.url}
             data-testid="author__twitterUrl"
           >
-            <Twitter size={21} />
+            <Twitter />
           </SocialLink>
           <SocialLink
             href={siteData.social.linkedIn.url}
             data-testid="author__linkedInUrl"
           >
-            <Linkedin size={21} />
+            <LinkedIn />
           </SocialLink>
         </div>
       </div>
