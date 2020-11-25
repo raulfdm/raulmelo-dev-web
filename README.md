@@ -18,3 +18,11 @@ NEXT_PUBLIC_ALGOLIA_INDEX_NAME=xxx
 ## Technologies
 
 - TailwindCSS
+
+## Design
+
+### Theming
+
+- Background:
+  - light: white
+  - dark: blueGray.900
