@@ -1,13 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { defineMessage, FormattedMessage } from 'react-intl';
-import classNames from 'classnames';
 
 import { PersonalInformationApiData } from '@types-api';
 import { siteData } from '@data/siteData';
 import { useLocalization } from '@hooks/useLocalization';
 import { Twitter, Github, LinkedIn } from '@icons';
-import styles from './AuthorPresentation.module.css';
 
 type Props = {
   fullName: PersonalInformationApiData['full_name'];
@@ -17,10 +15,18 @@ type Props = {
 const message = defineMessage({ id: 'authorPresentation.profileImageAlt' });
 
 const SocialLink = (props: React.ComponentPropsWithoutRef<'a'>) => (
-  <a
-    className={classNames(['mr-4 cursor-pointer relative', styles.SocialLink])}
-    {...props}
-  />
+  <>
+    <a className="mr-4 cursor-pointer relative" {...props} />
+    <style jsx>{`
+      a:not(:last-child):after {
+        content: '·';
+        color: inherit;
+        position: absolute;
+        right: -10px;
+        top: 0;
+      }
+    `}</style>
+  </>
 );
 
 export const AuthorPresentation: React.FC<Props> = ({
@@ -43,7 +49,7 @@ export const AuthorPresentation: React.FC<Props> = ({
         >
           <FormattedMessage id="siteData.description" />
         </p>
-        <div className="flex align-center pt-5 flex-1">
+        <div className="flex align-center pt-5 flex-1 text-gray-500 dark:text-gray-400">
           <SocialLink
             href={siteData.social.github.url}
             data-testid="author__githubUrl"

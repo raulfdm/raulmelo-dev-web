@@ -7,7 +7,7 @@ export const BigQuote = (
     className={classNames([
       'border-none',
       'font-title text-3xl lg:text-4xl',
-      'text-black text-opacity-60',
+      'text-opacity-60',
       'tracking-tight',
     ])}
     {...props}

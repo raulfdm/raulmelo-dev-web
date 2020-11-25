@@ -1,4 +1,5 @@
 import { GA_TRACKING_ID } from '@config/analytics';
+import classNames from 'classnames';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
@@ -12,7 +13,15 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="h-auto bg-white dark:bg-gray-800">
+        <body
+          className={classNames([
+            'h-full',
+            'bg-white dark:bg-blue-900',
+            'text-black dark:text-white',
+            'transition-colors duration-200 ease-linear',
+            'relative',
+          ])}
+        >
           {/* Global Theme handler */}
           <script
             dangerouslySetInnerHTML={{

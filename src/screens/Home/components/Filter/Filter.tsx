@@ -64,13 +64,11 @@ export const Filter: React.FC<FilterProps> = ({
               scale: 1.1,
             }}
             data-testid={`postFilter__${name}`}
-            className="text-sm text-gray-400 cursor-pointer font-sans mr-5"
+            className="text-sm cursor-pointer font-sans mr-5"
           >
             <p
               className={`text-current pb-2 border-0 transition-all duration-100 ease-linear ${
-                activeFilter === name
-                  ? `border-b border-current text-gray-700 dark:text-gray-50 font-bold`
-                  : ''
+                activeFilter === name ? `border-b border-current font-bold` : ''
               }`}
             >
               {formatMessage(message)}

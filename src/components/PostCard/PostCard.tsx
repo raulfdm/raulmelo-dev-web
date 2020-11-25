@@ -44,9 +44,9 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
       )}
       <div>
         <Link href={getPostUrl(slug)} data-testid="post-card" locale={language}>
-          <h3 className="font-semibold text-xl md:text-3xl mt-3">
-            <a className="relative z-10">{title}</a>
-          </h3>
+          <a className="relative inline-block">
+            <h3 className="font-semibold text-xl md:text-3xl mt-3">{title}</h3>
+          </a>
         </Link>
 
         <span className="block text-sm md:text-lg font-sans mb-2.5">

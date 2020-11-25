@@ -59,7 +59,6 @@ export const SearchPage = () => {
             />
             <AlgoliaHits />
           </div>
-
           <PoweredByAlgolia />
         </InstantSearch>
       </main>
