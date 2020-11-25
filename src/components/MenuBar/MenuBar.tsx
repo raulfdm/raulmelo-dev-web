@@ -47,7 +47,14 @@ export const MenuBar: FC = () => {
   return (
     <>
       <motion.section
-        className="fixed inset-x-0 top-0 h-16 z-20 shadow dark:shadow-none dark:border-b border-gray-600 bg-white dark:bg-gray-800"
+        className={classNames([
+          'absolute',
+          'inset-x-0',
+          'top-0 h-16',
+          'z-20',
+          'shadow',
+          'bg-white dark:bg-blue-800',
+        ])}
         animate={showMenu ? 'open' : 'closed'}
         variants={variants}
         transition={{ duration: 0.3, type: 'tween' }}

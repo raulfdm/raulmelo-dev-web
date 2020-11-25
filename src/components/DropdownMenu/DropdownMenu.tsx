@@ -23,6 +23,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         {isVisible && (
           <div className="relative z-20">
             <ul
+              onClick={(event) => {
+                event.persist();
+                setIsVisible(false);
+              }}
               className={classNames([
                 'flex flex-col',
                 'shadow',

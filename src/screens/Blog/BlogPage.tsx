@@ -12,6 +12,7 @@ import { SEO } from '@components/SEO';
 import { SeriesSection } from './components/SeriesSection';
 import { Tags } from '@components/Tags';
 import { useLocalization } from '@hooks/useLocalization';
+import { BlogUiContainer } from './components/BlogUiContainer';
 
 export type BlogPageProps = {
   content: RenderToStringReturnType;
@@ -76,9 +77,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       {translations}
       {allSeries}
       {featuredImage}
-      <article className="prose dark:prose-dark prose-lg lg:prose-xl container mx-auto px-4 md:px-0 max-w-screen-md">
-        {content}
-      </article>
+      <BlogUiContainer>{content}</BlogUiContainer>
       <footer className="container mx-auto px-4 md:px-0 max-w-screen-md">
         {seriesWithDivider}
         <hr className="mt-10 mb-6" />

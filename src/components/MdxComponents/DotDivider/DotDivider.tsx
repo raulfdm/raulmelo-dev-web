@@ -1,6 +1,6 @@
 export const DotDivider = (props: React.ComponentPropsWithoutRef<'hr'>) => (
   <>
-    <hr className="relative italic text-2xl" {...props} />
+    <hr className="relative italic text-2xl my-5" {...props} />
     <style jsx>{`
       hr {
         border-color: transparent;

@@ -7,6 +7,8 @@ import classNames from 'classnames';
 
 import { useLocalization } from '@hooks/useLocalization';
 import { useApp } from '@hooks/useApp';
+import { MenuButton } from '@components/MenuBar';
+import { Menu, Close } from '@icons';
 
 const messages = defineMessage({
   home: {
@@ -70,11 +72,12 @@ export const SideMenu = () => {
           'fixed',
           'bottom-0 top-16 right-0',
           'h-full',
-          'bg-white dark:bg-gray-800',
+          'bg-white dark:bg-blue-800',
           'z-20',
           'transform translate-x-full',
           'flex flex-col',
-          'w-auto sm:w-52 md:w-64',
+          'w-32 sm:w-64',
+          'min-w-1/2 sm:min-w-max',
           'py-2',
           'space-y-3',
         ])}
@@ -133,5 +136,16 @@ export const SideMenu = () => {
         />
       ) : null}
     </>
+  );
+};
+
+export const SideMenuNavIcon = () => {
+  const { sideMenu } = useApp();
+
+  const Icon = sideMenu.isCollapsed ? Menu : Close;
+  return (
+    <MenuButton onClick={sideMenu.toggle} data-testid="side-menu-button">
+      <Icon width={21} />
+    </MenuButton>
   );
 };
