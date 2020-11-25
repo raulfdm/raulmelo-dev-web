@@ -18,7 +18,7 @@ const Link = (props: React.ComponentPropsWithoutRef<'a'>) => (
     rel="noopener noreferrer"
     className={classNames([
       'text-base md:text-lg',
-      'border-b border-black print:border-none',
+      'border-b border-black dark:border-white print:border-none',
     ])}
     {...props}
   />

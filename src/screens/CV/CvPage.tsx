@@ -42,7 +42,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
       </SEO>
 
       <Link href="/">
-        <a className="underline absolute left-3 top-3 print:hidden">
+        <a className="underline absolute left-3 top-3 print:hidden z-20">
           Back to home
         </a>
       </Link>
@@ -68,7 +68,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
           className={classNames([
             'fixed',
             'bottom-4 right-4',
-            'bg-white',
+            'bg-white dark:bg-blue-700',
             'rounded-full',
             'shadow-lg',
             'w-10 h-10',
