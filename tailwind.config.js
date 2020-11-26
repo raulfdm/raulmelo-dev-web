@@ -69,6 +69,15 @@ module.exports = {
             },
           },
 
+          lg: {
+            css: {
+              hr: {
+                overflow: 'visible',
+                marginBottom: '2.6rem',
+                marginTop: '2.6rem',
+              },
+            },
+          },
           dark: {
             css: {
               color: white,
