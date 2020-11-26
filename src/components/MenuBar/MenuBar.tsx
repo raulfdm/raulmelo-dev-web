@@ -48,7 +48,7 @@ export const MenuBar: FC = () => {
     <>
       <motion.section
         className={classNames([
-          'absolute',
+          'fixed',
           'inset-x-0',
           'top-0 h-16',
           'z-20',

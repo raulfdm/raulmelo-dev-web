@@ -65,7 +65,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({
   series,
   currentPostId,
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const { name, posts, amount } = series;
 
   useEffect(() => {
@@ -79,10 +79,10 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({
   return (
     <Container data-testid="series-section" as="section">
       <div
-        className="relative bg-white dark:bg-gray-800 rounded shadow my-5"
+        className="relative bg-white dark:bg-blue-800 rounded shadow my-5"
         data-testid="series-menu"
       >
-        <div className="">
+        <div>
           <Header isOpen={isOpen} toggleSection={toggleSection} name={name} />
           <motion.ul
             className="m-0"
@@ -109,7 +109,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({
                   variants={variants.item}
                 >
                   <Link href={uri}>
-                    <a className="block no-underline px-4 py-2.5">{copy}</a>
+                    <a className="block no-underline px-4 py-3">{copy}</a>
                   </Link>
                 </motion.li>
               );
@@ -138,16 +138,19 @@ const Header = ({ isOpen, toggleSection, name }: HeaderProps) => {
       className={classnames([
         'flex content-between',
         'cursor-pointer',
-        'py-2.5 px-4',
+        'py-3 px-4',
         'font-serif text-lg md:text-xl font-bold',
         'transition-spacing duration-300',
-        isOpen ? 'pb-2.5 border-b border-gray-600' : 'pb-0 border-none',
+        isOpen
+          ? 'pb-2.5 border-b border-gray-100 dark:border-gray-600'
+          : 'pb-0 border-none',
       ])}
       onClick={toggleSection}
       data-testid="expand-button"
     >
       <span className="flex-1">{name}</span>
       <motion.button
+        className="flex items-center justify-center w-7 h-7"
         initial="collapsed"
         animate={isOpen ? 'open' : 'collapsed'}
         variants={{
@@ -172,10 +175,12 @@ const Footer = ({ isOpen, amount, toggleSection }: FooterProps) => {
       className={classnames([
         'flex content-between',
         'cursor-pointer',
-        'py-2.5 px-4',
+        'py-3 px-4',
         'text-sm md:text-base font-sans',
         ' transition-spacing duration-300',
-        isOpen ? 'pt-2.5 border-t border-gray-600' : 'pt-0 border-none',
+        isOpen
+          ? 'pt-2.5 border-t border-gray-100 dark:border-gray-600'
+          : 'pt-0 border-none',
       ])}
     >
       <span>

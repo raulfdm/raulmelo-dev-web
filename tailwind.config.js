@@ -45,6 +45,9 @@ module.exports = {
             css: {
               color: black,
               fontFamily: serif,
+              p: {
+                wordBreak: 'break-all',
+              },
               h2: {
                 fontFamily: sans,
               },
@@ -66,11 +69,24 @@ module.exports = {
             },
           },
 
+          lg: {
+            css: {
+              hr: {
+                overflow: 'visible',
+                marginBottom: '2.6rem',
+                marginTop: '2.6rem',
+              },
+            },
+          },
           dark: {
             css: {
               color: white,
+              'figure figcaption': {
+                color: theme('textColor.gray.200'),
+              },
               blockquote: {
                 borderLeftColor: white,
+                color: theme('textColor.gray.200'),
               },
               a: {
                 color: white,
