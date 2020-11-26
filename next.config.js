@@ -1,6 +1,10 @@
 const path = require('path');
+const withPlugins = require('next-compose-plugins');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
-module.exports = {
+const nextConfig = {
   target: 'serverless',
   i18n: {
     locales: ['en', 'pt'],
@@ -47,3 +51,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withPlugins([withBundleAnalyzer], nextConfig);
