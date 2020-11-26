@@ -17,6 +17,8 @@ html {
   @apply h-full;
 }
 
-a {
-  word-break: break-all;
+* {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
