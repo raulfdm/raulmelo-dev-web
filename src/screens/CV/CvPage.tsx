@@ -74,6 +74,7 @@ export const CvPage: React.FC<CvApiDataProps> = ({ cv, personalInfo }) => {
             'w-10 h-10',
             'hover:transform hover:scale-110 transition-transform duration-100 ease-in-out',
             'flex items-center justify-center',
+            'z-20',
           ])}
           onClick={moveToTop}
         >
