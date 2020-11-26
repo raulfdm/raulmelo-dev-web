@@ -16,3 +16,7 @@
 html {
   @apply h-full;
 }
+
+* {
+  word-break: break-all;
+}
