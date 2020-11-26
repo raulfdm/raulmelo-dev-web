@@ -31,10 +31,10 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                 'flex flex-col',
                 'shadow',
                 'max-w-xs',
-                'border rounded dark:border-gray-500',
+                'border rounded dark:border-gray-400',
                 'divide-y divide-gray-200 dark:divide-gray-500',
                 'absolute right-0 top-5',
-                'bg-white dark:bg-gray-800',
+                'bg-white dark:bg-blue-800',
               ])}
             >
               {items}
