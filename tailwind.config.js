@@ -69,8 +69,12 @@ module.exports = {
           dark: {
             css: {
               color: white,
+              'figure figcaption': {
+                color: theme('textColor.gray.200'),
+              },
               blockquote: {
                 borderLeftColor: white,
+                color: theme('textColor.gray.200'),
               },
               a: {
                 color: white,
