@@ -80,6 +80,7 @@ export const SideMenu = () => {
           'min-w-1/2 sm:min-w-max',
           'py-2',
           'space-y-3',
+          'transition-theme duration-200 ease',
         ])}
         animate={animate}
         variants={{

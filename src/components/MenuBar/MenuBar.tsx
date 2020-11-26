@@ -54,6 +54,7 @@ export const MenuBar: FC = () => {
           'z-20',
           'shadow',
           'bg-white dark:bg-blue-800',
+          'transition-theme duration-200 ease',
         ])}
         animate={showMenu ? 'open' : 'closed'}
         variants={variants}

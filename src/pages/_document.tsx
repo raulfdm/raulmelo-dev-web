@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
             'h-full',
             'bg-white dark:bg-blue-900',
             'text-black dark:text-white',
-            'transition-colors duration-200 ease-linear',
+            'transition-theme duration-200 ease',
             'relative',
           ])}
         >

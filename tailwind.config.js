@@ -27,6 +27,7 @@ module.exports = {
       },
       transitionProperty: {
         spacing: 'margin, padding',
+        theme: 'background-color, color, fill, opacity, border, shadow',
       },
       borderWidth: {
         10: '10px',
