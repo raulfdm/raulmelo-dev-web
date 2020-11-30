@@ -1,8 +1,10 @@
 const isAnalyzerMode = process.env.ANALYZE === 'true';
 
 const path = require('path');
+const { allRedirects } = require('./config/redirects');
 const withPlugins = require('next-compose-plugins');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: isAnalyzerMode,
 });
@@ -78,6 +80,9 @@ const nextConfig = {
     });
 
     return config;
+  },
+  async redirects() {
+    return allRedirects;
   },
 };
 
