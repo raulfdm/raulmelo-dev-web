@@ -35,7 +35,11 @@ export const getStaticProps = async ({ params }: Params) => {
     PostsTagApiData,
     PersonalInformationApiData,
   ] = await Promise.all([
-    Backend.fetch('post-tags', `?slug=${params.slug}`),
+    Backend.fetch('post-tags', {
+      params: {
+        slug: params.slug,
+      },
+    }),
     Backend.fetch('personal-information'),
   ]);
 
