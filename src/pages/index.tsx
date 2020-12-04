@@ -13,15 +13,10 @@ const Home = (props: HomePageProps) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const [posts, personalInfo, social] = (await Promise.all([
-    /**
-     * TODO: fix get posts by locale
-     * If I filter by locale, when the user switch from one lang to other
-     * the posts for the selected language wont be available
-     */
-    // Backend.fetch('posts', `?language=${locale}`),
     Backend.fetch('posts', {
       params: {
         _sort: 'date:DESC',
+        language: locale as string,
       },
     }),
     Backend.fetch('personal-information'),
@@ -31,7 +26,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       posts: sanitizePosts(posts),
-      locale,
       personalInfo,
       social,
     },
