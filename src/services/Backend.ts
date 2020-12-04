@@ -27,7 +27,11 @@ export const Backend = {
     }
 
     if (options?.params) {
-      const queryString = qsStringify(options.params, { addQueryPrefix: true });
+      const queryString = qsStringify(options.params, {
+        addQueryPrefix: true,
+        encode: false,
+      });
+
       url += queryString;
     }
 

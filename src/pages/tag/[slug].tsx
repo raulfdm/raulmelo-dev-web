@@ -10,7 +10,6 @@ import {
 import { TagPage, TagPageProps } from '@screens/Tag/TagPage';
 import { SupportedLanguages } from '@types-app';
 import { SanitizedTag, sanitizePostTag } from '@screens/Tag/utils/apiSanitizer';
-import { sortDescPostsByDate } from '@utils/posts';
 import { head, pipe } from '@utils/ramda';
 
 const Tag = (props: TagPageProps) => <TagPage {...props} />;
@@ -25,7 +24,14 @@ type Params = {
 const sortTagPosts = (tag: SanitizedTag) => {
   const newTag = { ...tag };
 
-  newTag.blog_posts = sortDescPostsByDate(newTag.blog_posts as PostApiData[]);
+  function sortPostsByDateDesc() {
+    return newTag.blog_posts.sort(
+      (prev, curr) =>
+        new Date(curr.date).getTime() - new Date(prev.date).getTime(),
+    ) as PostApiData[];
+  }
+
+  newTag.blog_posts = sortPostsByDateDesc();
 
   return newTag;
 };
