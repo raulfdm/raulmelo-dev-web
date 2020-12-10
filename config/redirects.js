@@ -282,7 +282,7 @@
 
 const allRedirects = [
   {
-    source: '/blog/subindo-seu-projeto-front-end-gratuitamente-gh-pages',
+    source: '/en/blog/subindo-seu-projeto-front-end-gratuitamente-gh-pages',
     destination:
       '/pt/blog/subindo-seu-projeto-front-end-gratuitamente-gh-pages',
     permanent: true,
