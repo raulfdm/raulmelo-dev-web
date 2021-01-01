@@ -10,7 +10,9 @@ import {
   Gif,
   YouTubeIframe,
   DotDivider,
+  ImageSliderFactory,
 } from '@raulfdm/blog-components';
+import NextImage from 'next/image';
 
 import { TwitterCard } from './TwitterCard';
 import { Image } from './Image';
@@ -29,4 +31,10 @@ export const mdxComponents = {
   h4: H4,
   h5: H5,
   h6: H6,
+  ImageSlider: ImageSliderFactory({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ImageComponent(props: any) {
+      return <NextImage {...props} layout="responsive" />;
+    },
+  }),
 };
