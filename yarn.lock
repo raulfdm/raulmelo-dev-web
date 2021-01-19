@@ -1726,10 +1726,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
   integrity sha512-3NsZsJIA/22P3QUyrEDNA2D133H4j224twJrdipXN38dpnIOzAbUDtOwkcJ5pXmn75w7LSQDjA4tO9dm1XlqlA==
 
-"@raulfdm/blog-components@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@raulfdm%2fblog-components/-/blog-components-1.2.0.tgz#d609aadde49cfcf32ae2c157fe872fbf8a1a86f5"
-  integrity sha512-Ej1L6qugHnKmKfo8BvH0OOMuCbMAaFU51qLoXar76Jh0S4yQ6jTODAPs30YAvtS1pnAOm6X6CUzfv1A9fgAo8w==
+"@raulfdm/blog-components@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@raulfdm/blog-components/-/blog-components-1.2.1.tgz#b1f7996ed0aa9d7481f1568f81131dd80513c499"
+  integrity sha512-nBqTMNBV1g/EwiiSf8EqdiQjtlKMKmwROdg5SjjkK7Fk6zMJQI9LMjmG7hACakMD8tvnyzf4PuWsJTOhyR5flA==
   dependencies:
     "@emotion/react" "^11.1.4"
     "@emotion/styled" "^11.0.0"
