@@ -57,7 +57,7 @@ const CurriculumPage = () => {
             </p>
           </header>
 
-          <main>
+          <main className="pb-6">
             <iframe
               src="https://docs.google.com/document/d/e/2PACX-1vRH5F5mV58PwToU2intAbHK7XujvdPyOhWr2gDdCC9YcisCSaJVctuGlzE_28zgEbJt4qEo-CUJl-hb/pub?embedded=true"
               className="max-h-full w-full shadow-xl"
@@ -81,7 +81,7 @@ const CurriculumPage = () => {
         }
 
         .iframe-container iframe {
-          height: 80vh;
+          height: 75vh;
         }
       `}</style>
     </>
