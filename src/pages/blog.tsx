@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import { Backend } from '@services/Backend';
 import { PersonalInformationApiData, SocialApiData } from '@types-api';
@@ -11,7 +11,7 @@ const Home = (props: HomePageProps) => {
   return <HomePage {...props} />;
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   const [posts, personalInfo, social] = (await Promise.all([
     Backend.fetch('posts', {
       params: {
@@ -29,7 +29,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       personalInfo,
       social,
     },
-    revalidate: 1,
   };
 };
 
