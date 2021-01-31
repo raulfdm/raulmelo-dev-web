@@ -8,7 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = {
-  target: 'serverless',
+  target: 'server',
   i18n: {
     locales: ['en', 'pt'],
     defaultLocale: 'en',
