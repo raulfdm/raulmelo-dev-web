@@ -1,9 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
+import { ClickOutside } from '@raulfdm/blog-components';
 import { createMachine } from '@xstate/fsm';
 import { useMachine } from '@xstate/react/lib/fsm';
-
-import { ClickOutside } from '@raulfdm/blog-components';
+import React from 'react';
+import tw from 'twin.macro';
 import { DropdownMenuProps } from './types';
 
 type ToggleEvent = {
@@ -32,6 +31,28 @@ const dropdownMachine = createMachine<never, MachinesEvent>({
   },
 });
 
+const List = tw.ul`
+  shadow
+  max-w-xs
+  border rounded 
+  dark:border-gray-400
+  divide-y divide-gray-200
+  dark:divide-gray-500
+  absolute right-0
+  top-5
+  bg-white dark:bg-blue-800
+`;
+
+export const DropdownMenuItem = tw.li`
+  text-base
+  font-sans
+  text-center
+  cursor-pointer
+  py-2 px-6
+  whitespace-nowrap
+  flex-1
+`;
+
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   items,
   children,
@@ -52,43 +73,17 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
         {isVisible && (
           <div className="relative z-20">
-            <ul
+            <List
               onClick={(event) => {
                 event.persist();
                 send('TURN_OFF');
               }}
-              className={classNames([
-                'flex flex-col',
-                'shadow',
-                'max-w-xs',
-                'border rounded dark:border-gray-400',
-                'divide-y divide-gray-200 dark:divide-gray-500',
-                'absolute right-0 top-5',
-                'bg-white dark:bg-blue-800',
-              ])}
             >
               {items}
-            </ul>
+            </List>
           </div>
         )}
       </div>
     </ClickOutside>
-  );
-};
-
-export const DropdownMenuItem = (
-  props: React.ComponentPropsWithoutRef<'li'>,
-) => {
-  return (
-    <li
-      className={classNames([
-        'text-base font-sans text-center',
-        'cursor-pointer',
-        'py-2 px-6',
-        'whitespace-nowrap',
-        'flex-1',
-      ])}
-      {...props}
-    />
   );
 };

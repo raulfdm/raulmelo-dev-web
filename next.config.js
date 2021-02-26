@@ -56,6 +56,7 @@ const nextConfig = {
       config.node = {
         fs: 'empty',
         rehype: 'empty',
+        module: 'empty',
       };
     }
 

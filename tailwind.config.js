@@ -1,11 +1,11 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: false,
+  // future: {
+  //   removeDeprecatedGapUtilities: true,
+  //   purgeLayersByDefault: true,
+  // },
+  // purge: false,
   darkMode: 'class',
   theme: {
     fontFamily: {
