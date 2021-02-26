@@ -1,7 +1,7 @@
 import { SupportedThemes } from '@types-app';
-import { useMachine } from '@xstate/react';
+import { useMachine } from '@xstate/react/lib/fsm';
 import { useEffect } from 'react';
-import { createMachine } from 'xstate';
+import { createMachine } from '@xstate/fsm';
 
 /* TODO: find a way to consume this value from a single source of truth */
 const colorMap = {
@@ -36,7 +36,7 @@ function saveThemeOnLocalStorage(theme: SupportedThemes) {
   };
 }
 
-const themeMachine = createMachine<null, ToggleEvent>({
+const themeMachine = createMachine<never, ToggleEvent>({
   initial: 'off',
   states: {
     off: {

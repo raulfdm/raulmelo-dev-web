@@ -1,9 +1,11 @@
-import { assign, createMachine } from 'xstate';
-import { useMachine } from '@xstate/react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { assign, createMachine } from '@xstate/fsm';
+import { useMachine } from '@xstate/react/lib/fsm';
 import { useWindowScroll } from 'react-use';
 import { useEffect } from 'react';
 
 export function useHideMenu(): 'open' | 'closed' {
+  // @ts-ignore
   const [current, send] = useMachine(scrollMachine);
   const { y } = useWindowScroll();
 
@@ -50,10 +52,9 @@ const scrollMachine = createMachine<Context, ScrollEvent>(
             actions: 'updateY',
           },
         },
+        // @ts-ignore
         after: {
-          TOGGLE: {
-            target: 'idle',
-          },
+          400: 'idle',
         },
         exit: 'setDirection',
       },

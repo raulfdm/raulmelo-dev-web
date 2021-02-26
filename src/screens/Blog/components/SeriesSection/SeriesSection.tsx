@@ -1,12 +1,12 @@
 import { Container } from '@components/Ui';
 import { ChevronDownIcon } from '@raulfdm/blog-components';
 import { RelevantPostSerieData } from '@screens/Blog/utils/series';
-import { useMachine } from '@xstate/react';
+import { useMachine } from '@xstate/react/lib/fsm';
 import { default as classnames, default as classNames } from 'classnames';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
-import { createMachine } from 'xstate';
+import { createMachine } from '@xstate/fsm';
 
 const variants = {
   list: {
@@ -55,7 +55,7 @@ const variants = {
   },
 };
 
-const seriesMachine = createMachine<null, SeriesMachineEvent>({
+const seriesMachine = createMachine<never, SeriesMachineEvent>({
   initial: 'collapsed',
   states: {
     collapsed: {

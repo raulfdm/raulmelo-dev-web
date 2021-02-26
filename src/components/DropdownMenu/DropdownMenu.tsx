@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { createMachine } from 'xstate';
-import { useMachine } from '@xstate/react';
+import { createMachine } from '@xstate/fsm';
+import { useMachine } from '@xstate/react/lib/fsm';
 
 import { ClickOutside } from '@raulfdm/blog-components';
 import { DropdownMenuProps } from './types';
@@ -15,7 +15,7 @@ type TurnOffEvent = {
 
 type MachinesEvent = ToggleEvent | TurnOffEvent;
 
-const dropdownMachine = createMachine<null, MachinesEvent>({
+const dropdownMachine = createMachine<never, MachinesEvent>({
   initial: 'hidden',
   states: {
     hidden: {

@@ -1,12 +1,12 @@
-import { useMachine } from '@xstate/react';
-import { createMachine } from 'xstate';
+import { useMachine } from '@xstate/react/lib/fsm';
+import { createMachine } from '@xstate/fsm';
 
 type CloseMenuEvent = { type: 'CLOSE' };
 type ToggleMenuEvent = { type: 'TOGGLE' };
 
 type MachineEvents = ToggleMenuEvent | CloseMenuEvent;
 
-const sideMenuMachine = createMachine<null, MachineEvents>({
+const sideMenuMachine = createMachine<never, MachineEvents>({
   initial: 'closed',
   states: {
     open: {
