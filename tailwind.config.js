@@ -73,9 +73,6 @@ module.exports = {
 
           lg: {
             css: {
-              h1: {
-                fontSize: '',
-              },
               hr: {
                 overflow: 'visible',
                 marginBottom: '2.6rem',
@@ -86,6 +83,9 @@ module.exports = {
 
           xl: {
             css: {
+              h1: {
+                fontSize: '2.2em',
+              },
               hr: {
                 overflow: 'visible',
                 marginBottom: '3.6rem',
@@ -99,6 +99,9 @@ module.exports = {
                * 22px
                */
               fontSize: '1.375em',
+              h1: {
+                fontSize: '2.4em',
+              },
             },
           },
           dark: {
