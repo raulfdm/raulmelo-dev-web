@@ -1,3 +1,5 @@
+'use strict';
+
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -45,6 +47,9 @@ module.exports = {
             css: {
               color: black,
               fontFamily: serif,
+              h1: {
+                fontFamily: serif,
+              },
               h2: {
                 fontFamily: sans,
               },
@@ -68,6 +73,9 @@ module.exports = {
 
           lg: {
             css: {
+              h1: {
+                fontSize: '',
+              },
               hr: {
                 overflow: 'visible',
                 marginBottom: '2.6rem',
@@ -90,7 +98,7 @@ module.exports = {
               /**
                * 22px
                */
-              fontSize: '1.375rem',
+              fontSize: '1.375em',
             },
           },
           dark: {
@@ -111,8 +119,6 @@ module.exports = {
               },
               h1: {
                 color: white,
-                fontSize: '2.25rem',
-                lineHeight: '1.3',
               },
               h2: {
                 color: white,
