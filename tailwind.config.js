@@ -75,6 +75,24 @@ module.exports = {
               },
             },
           },
+
+          xl: {
+            css: {
+              hr: {
+                overflow: 'visible',
+                marginBottom: '3.6rem',
+                marginTop: '3.6rem',
+              },
+            },
+          },
+          '2xl': {
+            css: {
+              /**
+               * 22px
+               */
+              fontSize: '1.375rem',
+            },
+          },
           dark: {
             css: {
               color: white,
@@ -129,7 +147,7 @@ module.exports = {
       transform: ['hover'],
       outline: ['dark'],
     },
-    typography: ['dark'],
+    typography: ['dark', 'responsive'],
   },
   plugins: [require('@tailwindcss/typography')],
 };
