@@ -1,3 +1,5 @@
+> Migrated to https://github.com/raulfdm/raulmelo-studio/tree/main/apps/website
+
 # Raul Melo Website/Blog
 
 ## Development
