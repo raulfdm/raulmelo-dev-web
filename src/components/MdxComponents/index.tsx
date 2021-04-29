@@ -13,8 +13,10 @@ import {
   ImageSliderFactory,
 } from '@raulfdm/blog-components';
 import NextImage from 'next/image';
-
+import { Tweet } from 'react-static-tweets';
 import { TwitterCard } from './TwitterCard';
+import 'react-static-tweets/styles.css';
+
 import { Image } from './Image';
 
 export const mdxComponents = {
@@ -24,6 +26,7 @@ export const mdxComponents = {
   YouTubeVideo: YouTubeIframe,
   hr: DotDivider,
   Image,
+  Tweet,
   TwitterCard,
   h1: H1,
   h2: H2,

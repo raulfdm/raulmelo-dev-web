@@ -23,7 +23,12 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['res.cloudinary.com', 'miro.medium.com', 'media.giphy.com'],
+    domains: [
+      'res.cloudinary.com',
+      'miro.medium.com',
+      'media.giphy.com',
+      'pbs.twimg.com',
+    ],
   },
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
